@@ -3,6 +3,7 @@ angular.module('ticketmonster').controller('NewTicketController', function ($sco
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.ticket = $scope.ticket || {};
+    $scope.ticket.seat = $scope.ticket.seat || {};
     
     $scope.ticketCategoryList = TicketCategoryResource.queryAll(function(items){
         $scope.ticketCategorySelectionList = $.map(items, function(item) {
