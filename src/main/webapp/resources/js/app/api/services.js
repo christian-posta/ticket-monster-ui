@@ -7,7 +7,7 @@ define([
 ], function (angular, _, config) {
     angular.module('ticketMonster.api', ['ngResource'])
         .factory('EventResource', function ($resource) {
-            var resource = $resource(config.baseUrl + 'rest/events/:eventId', {eventId: '@id'}, {
+            var resource = $resource(config.baseUrl + 'api/orders/events/:eventId', {eventId: '@id'}, {
                 'queryAll': {
                     method: 'GET',
                     isArray: true
@@ -16,7 +16,7 @@ define([
             return resource;
         })
         .factory('VenueResource', function ($resource) {
-            var resource = $resource(config.baseUrl + 'rest/venues/:venueId', {venueId: '@id'}, {
+            var resource = $resource(config.baseUrl + 'api/orders/venues/:venueId', {venueId: '@id'}, {
                 'queryAll': {
                     method: 'GET',
                     isArray: true
@@ -25,7 +25,7 @@ define([
             return resource;
         })
         .factory('ShowResource', function ($resource) {
-            var resource = $resource(config.baseUrl + 'rest/shows/:showId', {showId: '@id'}, {
+            var resource = $resource(config.baseUrl + 'api/orders/shows/:showId', {showId: '@id'}, {
                 'queryAll': {
                     method: 'GET',
                     isArray: true
@@ -34,7 +34,7 @@ define([
             return resource;
         })
         .factory('BookingResource', function ($resource) {
-            var resource = $resource(config.baseUrl + 'rest/bookings/:bookingId', {bookingId: '@id'}, {
+            var resource = $resource(config.baseUrl + 'api/orders/bookings/:bookingId', {bookingId: '@id'}, {
                 'queryAll': {
                     method: 'GET',
                     isArray: true
@@ -43,7 +43,7 @@ define([
             return resource;
         })
         .factory('PerformanceDetailsResource', function ($resource) {
-            var resource = $resource(config.baseUrl + 'rest/shows/performance/:performanceId', {performanceId: '@id'}, {
+            var resource = $resource(config.baseUrl + 'api/orders/shows/performance/:performanceId', {performanceId: '@id'}, {
                 'queryAll': {
                     method: 'GET',
                     isArray: true

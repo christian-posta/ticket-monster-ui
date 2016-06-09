@@ -23,8 +23,8 @@ define([
              * Note that this is not a Backbone model.
              */
             var Bot = function() {
-                this.statusUrl = config.baseUrl + 'rest/bot/status';
-                this.messagesUrl = config.baseUrl + 'rest/bot/messages';
+                this.statusUrl = config.baseUrl + 'api/orders/bot/status';
+                this.messagesUrl = config.baseUrl + 'api/orders/bot/messages';
             };
 
             /*
@@ -80,7 +80,7 @@ define([
             };
 
             var fetchMetrics = function() {
-                $http.get(config.baseUrl + "rest/metrics")
+                $http.get(config.baseUrl + "api/orders/metrics")
                     .then(function(response){
                         $scope.metrics = response.data;
                     });

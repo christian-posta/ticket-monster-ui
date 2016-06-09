@@ -27,7 +27,7 @@
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                     <div class="item" ng-repeat="event in events" ng-if="event.mediaItem" ng-class="{'active':$first}">
-                        <img ng-src='{{config.baseUrl + "rest/media/" + event.mediaItem.id}}'/>
+                        <img ng-src='{{config.baseUrl + "api/orders/media/" + event.mediaItem.id}}'/>
 
                         <div class="carousel-caption">
                             <div class="row">
