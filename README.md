@@ -1,10 +1,9 @@
 ## Ticket Monster UI
 
-To run with docker:
+First we need to build the docker container:
 
 ```
-mvn -Pf8-build
-docker run -it --rm -p 8080:8080 fabric8/ticket-monster-ui:1.0-SNAPSHOT
+docker build -t ticketmonster/ui:1.0 .
 ```
 
 Can port forward to your local machine from vagrant like this:
