@@ -4,13 +4,13 @@ First we need to build the docker container:
 
 ```
 cd web
-docker build -t ticketmonster/ui:1.0 .
+docker build -t ticketmonster/ui:2.0 .
 ```
 
 Run with kubernetes
 
 ```
-kubectl run tm-ui --image=ticketmonster/ui:1.0
+kubectl run tm-ui --image=ticketmonster/ui:2.0
 ``` 
 
 Now expose the UI as a Kuberentes Service:

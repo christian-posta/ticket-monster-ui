@@ -27,7 +27,7 @@
                 <!-- Carousel items -->
                 <div class="carousel-inner">
                     <div class="item" ng-repeat="venue in venues" ng-if="venue.mediaItem" ng-class="{'active':$first}">
-                        <img ng-src="{{config.baseUrl + 'api/orders/media/' + venue.mediaItem.id}}"/>
+                        <img ng-src="{{config.baseUrl + 'api/search/media/' + venue.mediaItem.id}}"/>
 
                         <div class="carousel-caption">
                             <div class="row">
