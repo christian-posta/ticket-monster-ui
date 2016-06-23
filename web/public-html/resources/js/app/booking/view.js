@@ -202,7 +202,7 @@ define([
             $scope.checkout = function() {
                 var bookingRequest = {ticketRequests:[]};
                 bookingRequest.ticketRequests = _.map(BookingService.tickets, function (ticket) {
-                    return {ticketPrice:ticket.ticketPrice.id, quantity:ticket.quantity}
+                    return {ticketPriceGuideId:ticket.ticketPrice.id, quantity:ticket.quantity}
                 });
                 bookingRequest.email = $scope.bookingRequest.email;
                 bookingRequest.performance = BookingService.getPerformance().id;
