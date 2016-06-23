@@ -138,6 +138,7 @@ define([
                 $scope.performance = _.find($scope.show.performances, function (item) {
                     return item.id == $routeParams.performanceId;
                 });
+                $scope.performance.displayTitle = $scope.show.event.name + " at " + $scope.show.venue.name;
                 BookingService.setPerformance($scope.performance);
                 var id = function (item) {return item.id;};
                 $scope.sections = _.uniq(_.sortBy(_.pluck($scope.show.ticketPrices, 'section'), id), true, id);
@@ -205,6 +206,7 @@ define([
                 });
                 bookingRequest.email = $scope.bookingRequest.email;
                 bookingRequest.performance = BookingService.getPerformance().id;
+                bookingRequest.performanceName = BookingService.getPerformance().displayTitle;
                 BookingResource.save(bookingRequest, function(data) {
                     BookingService.reset();
                     $location.path('/bookings/' + data.id);
@@ -218,7 +220,7 @@ define([
             var displayBooking = function() {
                 BookingResource.query({bookingId:$routeParams.bookingId}, function(data) {
                     $scope.booking = data;
-                    $scope.performance = PerformanceDetailsResource.query({performanceId:$scope.booking.performance.id});
+                    $scope.performance = PerformanceDetailsResource.query({performanceId:$scope.booking.performanceId.id});
                 }, function() {
                     console.log("Failure");
                 });
