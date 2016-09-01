@@ -2,7 +2,7 @@
 
 First we need to build the docker container.
 
-## Vanilla Kubernetes
+### Vanilla Kubernetes
 If you're running on vanilla Kubernetes (or some distro that doesn't do docker builds) then you need access to a docker Daemon. To build navigate into the `web` folder and run the docker build:
 
 ```
@@ -25,7 +25,7 @@ kubectl expose rc tm-ui-1 --name ticket-monster --port 80
 
 Lastly, you'll need to expose a Kubernetes Ingress route. See [the docs on Ingress Resources](http://kubernetes.io/docs/user-guide/ingress/) for more.
 
-## Running on OpenShift 3.x
+### Running on OpenShift 3.x
 OpenShift makes a lot of this a lot easier for these reasons:
 
 * we can do the docker build inside of openshift with BuildConfigs; we don't need access to a docker daemon
@@ -66,10 +66,20 @@ Change the `runAsUser` section to match:
 In OpenShift, we can expose this as a route (similar to Kubernetes Ingress). Here's an example:
 
 ```
-oc expose svc ticket-monster-ui --hostname ticketmonster.vagrant.f8
+oc expose svc ticket-monster-ui
 ```
 
-Now we should be able to hit the service from the command line or the browser:
+Now we should be able to hit the service from the command line or the browser based on the OpenShift Route or Kubernetes Ingress!
+
+### Set up the backend services
+
+The backend services should be listening at:
+
+* Admin - http://tm-admin/admin
+* Orders - http://tm-orders/orders
+* Search - http://tm-search/search
+
+Please see the [httpd.conf](web/httpd.conf) file for more.
 
 
 
